@@ -15,10 +15,10 @@ git clone https://github.com/buddyeorl/deep-talk.git
 ### Download the Model and Scorer
 
 This app needs two files to work, the acoustic model:
-[deepspeech-0.8.2-models.pbmm](https://github.com/mozilla/DeepSpeech/releases/download/v0.8.2/deepspeech-0.8.2-models.pbmm)
+[deepspeech-0.9.3-models.pbmm](https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm)
 
 and the following scorer:
-[deepspeech-0.8.2-models.scorer](https://github.com/mozilla/DeepSpeech/releases/download/v0.8.2/deepspeech-0.8.2-models.scorer)
+[deepspeech-0.9.3-models.scorer](https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer)
 
 download both files to `/server/index/`
 

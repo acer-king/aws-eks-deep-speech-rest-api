@@ -9,9 +9,9 @@ let readStream = fs.createReadStream(filename);
 
 console.log(ds.Version());
 
-let model = new ds.Model('./index/deepspeech-0.8.2-models.pbmm');
-model.enableExternalScorer('./index/deepspeech-0.8.2-models.scorer');
-//let model = new ds.Model('./index/deepspeech-0.8.2-models.tflite');
+let model = new ds.Model('./index/deepspeech-0.9.3-models.pbmm');
+model.enableExternalScorer('./index/deepspeech-0.9.3-models.scorer');
+//let model = new ds.Model('./index/deepspeech-0.9.3-models.tflite');
 
 console.log(model);
 

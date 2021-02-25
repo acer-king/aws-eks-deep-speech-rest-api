@@ -5,11 +5,11 @@
 
 #deepspeech scorer, models, checkpoints files and audio files
 /index/audio
-/index/audio-0.8.2.tar.gz
-/index/deepspeech-0.8.2-checkpoint.tar.gz
-/index/deepspeech-0.8.2-models.tflite
-/index/deepspeech-0.8.2-models.pbmm
-/index/deepspeech-0.8.2-models.scorer
+/index/audio-0.9.3.tar.gz
+/index/deepspeech-0.9.3-checkpoint.tar.gz
+/index/deepspeech-0.9.3-models.tflite
+/index/deepspeech-0.9.3-models.pbmm
+/index/deepspeech-0.9.3-models.scorer
 #/index
 
 # production
