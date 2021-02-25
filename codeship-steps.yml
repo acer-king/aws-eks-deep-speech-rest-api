@@ -7,8 +7,8 @@
 
 - type: parallel
   name: push_images
-  tag: master
-  encrypted_dockercfg_path: dockercfg.encrypted
+  tag: main
+  encrypted_dockercfg_path: dockercfg.enc
   steps:
     - type: push
       service: vote
