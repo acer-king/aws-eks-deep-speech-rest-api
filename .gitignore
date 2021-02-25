@@ -1,1 +1,4 @@
 .env
+cre.env
+dockercfg
+codeship.aes
