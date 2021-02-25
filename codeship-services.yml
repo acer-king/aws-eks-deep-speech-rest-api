@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  vote:
+    build: 
+      context: ./vote
+      dockerfile: Dockerfile
+      image: 1991412/dastan
+    command: npm start
+    volumes:
+     - ./vote:/app
+    #depends_on:
+    #  - db
+    cached: true

@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("../client/build"));
 
 //set port
-app.set('port', (process.env.PORT || 3001));
+app.set('port', (process.env.PORT || 80));
 
 
 //API routes
