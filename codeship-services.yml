@@ -1,8 +1,7 @@
 services:
   vote:
     build: 
-      image: dastan_img
+      image: dastan
       context: vote
     volumes:
      - ./vote:/app
-    encrypted_env_file: .env.encrypted
