@@ -1,6 +1,12 @@
 services:
-  dockerbuild:
+  vote:
     build: 
-      image: dastan
-      dockerfile: Dockerfile
       context: ./vote
+      dockerfile: Dockerfile
+      image: dastan
+    command: npm start
+    volumes:
+     - ./vote:/app
+    #depends_on:
+    #  - db
+    cached: true
