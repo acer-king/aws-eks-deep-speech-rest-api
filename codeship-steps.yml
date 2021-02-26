@@ -1,7 +1,0 @@
-- type: push
-  service: vote
-  name: push_vote_image
-  image_name: 1991412/dastan
-  image_tag: "{{.CommitID}}"
-  encrypted_dockercfg_path: dockercfg.enc
-
