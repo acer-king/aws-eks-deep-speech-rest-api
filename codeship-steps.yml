@@ -6,5 +6,5 @@
     - type: push
       service: vote
       name: push_vote_image
-      image_name: dastan
+      image_name: 1991412/dastan
       image_tag: "{{.CommitID}}"

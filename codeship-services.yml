@@ -1,7 +1,7 @@
 services:
   vote:
     build: 
-      image: dastan
+      image: 1991412/dastan
       dockerfile: Dockerfile
       context: ./vote
     volumes:
