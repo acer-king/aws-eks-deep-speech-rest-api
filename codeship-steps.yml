@@ -4,12 +4,6 @@
   - service: vote
     name: vote_tests
     command: echo "Tests passed!"
-  - service: result
-    name: result_tests
-    command: echo "Tests passed!"
-  - service: worker
-    name: worker_tests
-    command: echo "Tests passed!"
 - type: parallel
   name: push_images
   tag: main
