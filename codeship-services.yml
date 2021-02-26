@@ -1,7 +1,6 @@
 services:
   vote:
     build: 
-      context: ./vote
       dockerfile: Dockerfile
       image: dastan
     command: npm start
