@@ -1,4 +1,4 @@
-FROM 1991412/dastan
+FROM node:14
 WORKDIR /app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
