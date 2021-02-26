@@ -1,9 +1,5 @@
 services:
-  vote:
+  dockerbuild:
     build: 
-      image: 1991412/dastan
-      dockerfile: Dockerfile
-      context: ./vote
-    volumes:
-     - ./vote:/app
-    cached: true
+      image: dastan
+      dockerfile: ./vote/Dockerfile
