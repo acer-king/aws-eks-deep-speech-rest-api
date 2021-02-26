@@ -3,8 +3,7 @@ version: "1"
 services:
   vote:
     build: 
-      context: ./vote
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.build
       image: 1991412/dastan
     command: npm start
     volumes:
