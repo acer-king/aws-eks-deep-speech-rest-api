@@ -1,13 +1,8 @@
-version: "1"
-
 services:
   vote:
     build: 
-      dockerfile: Dockerfile.build
-      image: 1991412/dastan
-    command: npm start
+      image: dastan_img
+      context: vote
     volumes:
      - ./vote:/app
-    #depends_on:
-    #  - db
-    cached: true
+    encrypted_env_file: .env.encrypted
