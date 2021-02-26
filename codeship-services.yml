@@ -2,4 +2,5 @@ services:
   dockerbuild:
     build: 
       image: dastan
-      dockerfile: ./vote/Dockerfile
+      dockerfile: Dockerfile
+      context: ./vote
