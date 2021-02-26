@@ -12,5 +12,5 @@
     - type: push
       service: vote
       name: push_vote_image
-      image_name: 1991412/dastan
-      image_tag: "{{.CommitID}}"
+      command: docker tag dastan 1991412/dastan:{{.CommitID}}
+      command: docker push
