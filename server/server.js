@@ -39,6 +39,8 @@ app.use('/api/v1/getVoice', voice);
 
 
 //port
-app.listen(app.get("port"), () => {
+const server = app.listen(app.get("port"), () => {
     console.log(`Server is running on port ${app.get('port')}`);
 })
+
+server.keepAliveTimeout = 65000
