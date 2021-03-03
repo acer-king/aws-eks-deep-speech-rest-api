@@ -18,8 +18,8 @@ import SpeakingIcon from '@material-ui/icons/RecordVoiceOver';
 import MicOffIcon from '@material-ui/icons/MicOff';
 //setting default MediaRecorder to OpusMediaRecorder
 window.MediaRecorder = window.OpusMediaRecorder;
+const api_prod = 'http://18.237.29.23:8082/api/v1/getVoice'
 
-// Non-standard options for opus media recorder
 const workerOptions = {
     OggOpusEncoderWasmPath: 'https://cdn.jsdelivr.net/npm/opus-media-recorder@latest/OggOpusEncoder.wasm',
     WebMOpusEncoderWasmPath: 'https://cdn.jsdelivr.net/npm/opus-media-recorder@latest/WebMOpusEncoder.wasm'
@@ -284,10 +284,14 @@ const RecordNow = () => {
 
             let request = {
                 method: 'POST',
-                body: data
+                body: data,
+                crossDomain: true,
             }
             // console.log('trying to send')
-            return await fetch('/api/v1/getVoice', request)
+            // for (let i = 0; i < 1200; i++) {
+            // fetch(api_prod, request)
+            // }
+            return await fetch(api_prod, request)
                 .then((res) => res.json())
                 .then(res => {
                     // console.log('nothing here')
@@ -394,10 +398,14 @@ const RecordNow = () => {
 
             let request = {
                 method: 'POST',
-                body: data
+                body: data,
+                crossDomain: true
             }
             // console.log('trying to send')
-            return await fetch('/api/v1/getVoice', request)
+            // for (let i = 0; i < 10; i++) {
+            //     fetch(api_prod, request)
+            // }
+            return await fetch(api_prod, request)
                 .then((res) => res.json())
                 .then(res => {
                     // console.log('nothing here')
@@ -541,7 +549,8 @@ const RecordNow = () => {
 
         let request = {
             method: 'POST',
-            body: data
+            body: data,
+            crossDomain: true,
         }
 
         await fetch('http://localhost:3001/api/v1/getVoice', request)
