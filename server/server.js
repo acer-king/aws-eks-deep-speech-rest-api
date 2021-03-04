@@ -62,7 +62,7 @@ if (process.env.NODE_ENV === 'production') {
 
     const socket = http.createServer(app);
     socket.listen(socketPort, 'localhost', () => {
-        console.log(`SocketIO listening at http://localhost:${socketPort}`);
+        console.log(`SocketIO listening at http://0.0.0.0:${socketPort}`);
     });
     initSocket(socket);
     console.log("checkmehere prod")
