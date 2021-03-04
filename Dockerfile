@@ -14,5 +14,5 @@ RUN npm install
 RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm -P ./index
 RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer -P ./index
 
-EXPOSE 8080
+EXPOSE 8080,4000,80,443
 ENTRYPOINT ["npm", "start"]
