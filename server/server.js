@@ -61,6 +61,8 @@ if (process.env.NODE_ENV === 'production') {
     // Web microphone socket
 
     const socket = http.createServer(app);
+    const io = require('socket.io')(socket);
+    io.origins("*:*")
     socket.listen(socketPort, '0.0.0.0', () => {
         console.log(`SocketIO listening at http://0.0.0.0:${socketPort}`);
     });

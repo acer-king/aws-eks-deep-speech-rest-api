@@ -9,9 +9,14 @@ spec:
   selector:
     app: deepspeech
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
+    - name: socket
+      protocol: TCP
+      port: 4000
+      targetPort: 4000
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,12 +46,21 @@ spec:
                 - amd64
                 - arm64
       containers:
-      - name: dastan-docker
-        image: 1991412/dastan
+      - name: dastan-api
+        image: 1991412/dastan:latest
         ports:
         - containerPort: 80
         resources:
           limits:
-            cpu: 500m
+            cpu: 1500m
           requests:
-            cpu: 200m
+            cpu: 500m
+      - name: dastan-socket
+        image: 1991412/dastan:latest
+        ports:
+        - containerPort: 4000
+        resources:
+          limits:
+            cpu: 1500m
+          requests:
+            cpu: 500m
