@@ -1,5 +1,7 @@
+require('dotenv').config();
+const { initSocket } = require('./src/socket');
 const path = require('path');
-
+const http = require('http');
 //express
 const express = require('express');
 
@@ -16,6 +18,9 @@ let cors = require('cors');
 //initialize middlewares
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
+
 
 //http to https redirect middleware
 // app.use((req, res, next) => {
@@ -33,10 +38,15 @@ app.use(express.static("../client/build"));
 app.set('port', (process.env.PORT || 80));
 
 
+
 //API routes
 const voice = require('./api/getVoice')
+const listen = require('./api/getVoiceByUrl')
 app.use('/api/v1/getVoice', voice);
+app.use('/api/v1/listen', listen)
 
+const port = process.env.PORT || 80;
+const socketPort = process.env.SOCKET_PORT || 4000;
 
 //port
 const server = app.listen(app.get("port"), () => {
@@ -44,3 +54,31 @@ const server = app.listen(app.get("port"), () => {
 })
 
 server.keepAliveTimeout = 65000
+
+
+// create socket server 
+if (process.env.NODE_ENV === 'production') {
+    // Web microphone socket
+
+    const socket = http.createServer(app);
+    socket.listen(socketPort, 'localhost', () => {
+        console.log(`SocketIO listening at http://localhost:${socketPort}`);
+    });
+    initSocket(socket);
+    console.log("checkmehere prod")
+
+}
+else {
+    const socket = http.createServer(function (req, res) {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.write('SocketIO');
+        res.end();
+    });
+
+    socket.listen(socketPort, 'localhost', () => {
+        console.log(`SocketIO listening at http://localhost:${socketPort}`);
+    });
+
+    initSocket(socket);
+
+}

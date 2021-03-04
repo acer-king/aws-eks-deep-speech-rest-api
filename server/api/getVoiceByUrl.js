@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 let getFiles = multer();
-let { deepSpeech } = require('../middlewares/deepspeech');
+let { deepSpeech, deepSpeechByUrl } = require('../middlewares/deepspeech');
 
 // //========================used for local storage
 // var path = require('path')
@@ -20,11 +20,11 @@ let { deepSpeech } = require('../middlewares/deepspeech');
 
 
 //get voice data
-router.post("/", getFiles.single('audio'), deepSpeech, (req, res) => {
-    res.send({
-        metadata: 'success',
-        results: req.locals
-    })
+router.post("/", deepSpeechByUrl, (req, res) => {
+  res.send({
+    metadata: req.meta,
+    results: req.locals
+  })
 });
 
 

@@ -33,10 +33,14 @@
   },
   "homepage": "https://github.com/buddyeorl/small-talk#readme",
   "dependencies": {
+    "audio-loader": "^1.0.3",
     "cors": "^2.8.5",
     "deepspeech": "^0.9.3",
     "deepspeech-gpu": "^0.9.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "node-vad": "^1.1.4",
+    "socket.io": "^2.3.0"
   }
 }
