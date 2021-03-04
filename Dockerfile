@@ -4,7 +4,7 @@ WORKDIR /app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 ADD . /app
-RUN sudo apt-get install libasound2-dev
+RUN apt-get install libasound2-dev
 RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
