@@ -42,6 +42,7 @@ app.set('port', (process.env.PORT || 80));
 //API routes
 const voice = require('./api/getVoice')
 const listen = require('./api/getVoiceByUrl')
+const WebSocket = require('ws')
 app.use('/api/v1/getVoice', voice);
 app.use('/api/v1/listen', listen)
 
@@ -57,30 +58,27 @@ server.keepAliveTimeout = 65000
 
 
 // create socket server 
-if (process.env.NODE_ENV === 'production') {
-    // Web microphone socket
+// if (process.env.NODE_ENV === 'production') {
+//     var io = require('socket.io')(http, { path: '/home/socket.io' });
+//     initSocket(server);
 
-    const socket = http.createServer(app);
-    const io = require('socket.io')(socket);
-    io.origins("*:*")
-    socket.listen(socketPort, '0.0.0.0', () => {
-        console.log(`SocketIO listening at http://0.0.0.0:${socketPort}`);
-    });
-    initSocket(socket);
-    console.log("checkmehere prod")
+//     console.log("checkmehere prod")
 
-}
-else {
-    const socket = http.createServer(function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.write('SocketIO');
-        res.end();
-    });
+// }
+// else {
+//     const socket = http.createServer(function (req, res) {
+//         res.writeHead(200, { 'Content-Type': 'text/plain' });
+//         res.write('SocketIO');
+//         res.end();
+//     });
 
-    socket.listen(socketPort, 'localhost', () => {
-        console.log(`SocketIO listening at http://localhost:${socketPort}`);
-    });
+//     socket.listen(socketPort, 'localhost', () => {
+//         console.log(`SocketIO listening at http://localhost:${socketPort}`);
+//     });
 
-    initSocket(socket);
+//     initSocket(socket);
 
-}
+// }
+initSocket(server);
+
+console.log("checkmehere prod")
