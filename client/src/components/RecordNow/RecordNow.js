@@ -18,8 +18,8 @@ import SpeakingIcon from '@material-ui/icons/RecordVoiceOver';
 import MicOffIcon from '@material-ui/icons/MicOff';
 //setting default MediaRecorder to OpusMediaRecorder
 window.MediaRecorder = window.OpusMediaRecorder;
-// const api_prod = 'http://18.237.29.23:8082/api/v1/getVoice'
-const api_prod = 'http://localhost:80/v1/listen'
+const api_prod = 'https://www.deeplanguagesync.com/api/v1/getVoice'
+
 
 const workerOptions = {
     OggOpusEncoderWasmPath: 'https://cdn.jsdelivr.net/npm/opus-media-recorder@latest/OggOpusEncoder.wasm',
