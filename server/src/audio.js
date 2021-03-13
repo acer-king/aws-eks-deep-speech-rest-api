@@ -39,7 +39,7 @@ function processAudioStream(data, callback) {
   endTimeout = setTimeout(function () {
     console.log('\n *** timeout *** \n');
     resetAudioStream();
-  }, 600);
+  }, 2000);
 }
 
 function endAudioStream(callback) {
