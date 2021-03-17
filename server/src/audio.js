@@ -3,7 +3,7 @@ const VAD = require('node-vad');
 
 const voiceActivityDetection = new VAD(VAD.Mode.VERY_AGGRESSIVE);
 
-const SILENCE_THRESHOLD = 200; // how many milliseconds of inactivity before processing the audio
+const SILENCE_THRESHOLD = 300; // how many milliseconds of inactivity before processing the audio
 
 let model = createLanguageModel();
 
@@ -39,10 +39,11 @@ function processAudioStream(data, callback) {
   endTimeout = setTimeout(function () {
     console.log('\n *** timeout *** \n');
     resetAudioStream();
-  }, 2000);
+  }, 10000);
 }
 
 function endAudioStream(callback) {
+  console.log("endaudiostream")
   let results = intermediateDecode();
   if (results) {
     if (callback) {
@@ -71,7 +72,6 @@ function processSilence(data, callback) {
       silenceStart = now;
     } else if (now - silenceStart > SILENCE_THRESHOLD) {
       silenceStart = null;
-
       let results = intermediateDecode();
       console.log('[end]', results);
       if (results) {
